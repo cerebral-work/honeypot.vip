@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(cargo *)",
+      "Bash(bun *)",
+      "Bash(node *)",
+      "Bash(npm *)",
+      "Bash(moon *)",
+      "Bash(rtk *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "command": "bash ~/.claude/hooks/guard-main-push.sh"
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+pre-commit:
+  commands:
+    conventional-commits:
+      glob: "*.{md,txt,yml,yaml,json,toml,rs,ts,js,py,sh}"
+      run: |
+        if ! head -1 "$1" | grep -qE "^(feat|fix|infra|security|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .+"; then
+          echo "⛔ Commit message must follow Conventional Commits format"
+          echo "   Example: feat(scope): add new feature"
+          exit 1
+        fi
+      stage: true
+
+pre-push:
+  commands:
+    guard-main-push:
+      run: |
+        branch=$(git rev-parse --abbrev-ref HEAD)
+        if [[ "$branch" == "main" || "$branch" == "master" ]]; then
+          echo "⛔ Direct push to '$branch' is not allowed."
+          echo "   Create a feature branch and open a PR instead."
+          exit 1
+        fi
