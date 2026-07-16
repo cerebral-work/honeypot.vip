@@ -1,0 +1,18 @@
+# secrets / env
+.env
+.env.*
+*.key
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# claude local
+.claude/settings.local.json
