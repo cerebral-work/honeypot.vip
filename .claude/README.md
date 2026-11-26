@@ -4,16 +4,9 @@ This directory contains the federated configuration shared across the terrarium 
 
 ## Files
 
-| File | Purpose |
-|------|---------|
-| `settings.json` | Claude Code permissions + hooks |
-| `hooks/guard-main-push.sh` | Prevents direct pushes to main/master |
 
 ## Hooks
 
-| Hook | Trigger | Bypass |
-|------|---------|--------|
-| `guard-main-push` | `git push` to main/master | `# allow-direct-push` in commit msg or `TERRARIUM_SKIP_GUARD=1` |
 
 ## Conventions
 
